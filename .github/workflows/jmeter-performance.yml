@@ -1,0 +1,29 @@
+name: JMeter - Teste de Peformance com Docker
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    jmeter-performance-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Build Docker image
+              run: docker build -t jmeter-test .
+
+            - name: Run JMeter tests with Docker
+              run: docker run --rm -v $(pwd)/results:/jmeter/results jmeter-test
+
+            - name: Upload JMeter report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: jmeter-report
+                  path: ./results
