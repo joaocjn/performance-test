@@ -6,7 +6,8 @@ Este projeto utiliza o **JMeter** para executar testes de performance (carga e p
 
 -   [Instruções de Execução](#instruções-de-execução)
 -   [Acessando o Relatório de Execução](#acessando-o-relatório-de-execução)
--   [Considerações sobre os Testes](#considerações-sobre-os-testes)
+-   [Detalhes sobre os Testes](#detalhes-sobre-os-testes)
+-   [Conclusão da Execução dos Testes](#conclusão-da-execução-dos-testes)
 
 ---
 
@@ -37,7 +38,7 @@ Após a execução dos testes no **GitHub Actions**, o relatório será disponib
 
 ---
 
-## Considerações sobre os Testes
+## Detalhes sobre os Testes
 
 -   **Tipos de Testes**: Este repositório contém um script `performance-tests.jmx` que executa testes de **carga** e **pico**, verificando a capacidade de resposta da aplicação.
 
@@ -52,3 +53,16 @@ Ambos os testes são configurados para serem executados **em sequência**. Ou se
 -   **Configurações**:
     -   O arquivo `Dockerfile` é responsável por criar a imagem necessária para executar os testes de performance.
     -   O workflow do GitHub Actions está configurado para automatizar todo o processo de build, execução dos testes, e upload dos relatórios.
+
+---
+
+## Conclusão da Execução dos Testes
+
+Após a execução dos testes de performance, foi observado que o sistema **não atendeu ao critério de aceitação** estabelecido. Os principais pontos que levaram a essa conclusão foram:
+
+-   O tempo de resposta no **percentil 90** ultrapassou **2 segundos** na maioria das execuções, indicando que o sistema não foi capaz de processar as requisições dentro do tempo esperado sob a carga testada.
+-   Em algumas execuções, foi possível observar o erro **429 - Too Many Requests**, o que sugere que o sistema, em determinados momentos, atingiu seus limites de taxa de requisição.
+
+Esses resultados indicam que o sistema apresenta limitações ao lidar com o volume de requisições esperado, afetando o tempo de resposta e, ocasionalmente, gerando falhas por excesso de requisições. O aumento no tempo de resposta, junto aos erros 429, reforça que o servidor está enfrentando dificuldades para processar o número de requisições por segundo, especialmente em momentos de pico de carga.
+
+Portanto, o teste foi considerado **não satisfatório**, e recomenda-se uma análise mais aprofundada para identificar gargalos e melhorar a capacidade de processamento e a resiliência do servidor frente a uma carga elevada.
