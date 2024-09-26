@@ -68,5 +68,5 @@ Esses resultados indicam que o sistema apresenta limitações ao lidar com o vol
 
 Portanto, o teste foi considerado **não satisfatório**, e recomenda-se uma análise mais aprofundada para identificar gargalos e melhorar a capacidade de processamento e a resiliência do servidor frente a uma carga elevada.
 
-![Relatório da execução dos testes de performance](https://imgur.com/6xr1oLB)
-![Relatório da execução dos testes de performance](https://imgur.com/gjiEQee)
+![Relatório da execução dos testes de performance](https://i.imgur.com/6xr1oLB.png)
+![Relatório da execução dos testes de performance](https://i.imgur.com/gjiEQee.png)
