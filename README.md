@@ -13,14 +13,15 @@ Este projeto utiliza o **JMeter** para executar testes de performance (carga e p
 
 ## Instruções de Execução
 
-Os testes de performance são executados automaticamente no GitHub Actions a cada novo **push** ou **pull request** na branch `main` mas você também pode executá-lo na aba **Actions**.
+Os testes de performance são executados automaticamente no GitHub Actions a cada novo **push** ou **pull request** na branch `main` e também podem ser executados na aba **Actions**. Porém Caso você queira executar os testes de performance, **será necessário realizar um fork deste repositório**, uma vez que os workflows no GitHub Actions só podem ser executados pelo proprietário do repositório ou em um fork do mesmo
 
 ### Passos:
 
-1. Vá até a aba **Actions** na parte superior do repositório.
-2. Clique no workflow mais recente da execução.
-3. No canto superior direito da página de detalhes do workflow, clique no botão **"Re-run all jobs"**.
-4. Isso iniciará uma nova execução da pipeline, disparando os testes de performance com base no último commit.
+1. No repositório original, clique no botão **Fork** no canto superior direito para criar uma cópia do repositório em sua conta.
+2. No seu repositório forked, vá até a aba **Actions** na parte superior.
+3. Clique no workflow "Jmeter - Teste de Performance com Docker" localizado no menu esquerdo, abaixo de Actions.
+4. Clique no botão **"Run workflow"** no canto superior direito.
+5. Preencha os parâmetros, se solicitado, e clique em **"Run workflow"** novamente.
 
 ---
 
@@ -66,3 +67,6 @@ Após a execução dos testes de performance, foi observado que o sistema **não
 Esses resultados indicam que o sistema apresenta limitações ao lidar com o volume de requisições esperado, afetando o tempo de resposta e, ocasionalmente, gerando falhas por excesso de requisições. O aumento no tempo de resposta, junto aos erros 429, reforça que o servidor está enfrentando dificuldades para processar o número de requisições por segundo, especialmente em momentos de pico de carga.
 
 Portanto, o teste foi considerado **não satisfatório**, e recomenda-se uma análise mais aprofundada para identificar gargalos e melhorar a capacidade de processamento e a resiliência do servidor frente a uma carga elevada.
+
+![Relatório da execução dos testes de performance](https://imgur.com/a/1yhpkCY)
+![Relatório da execução dos testes de performance](https://imgur.com/a/2cOV8bf)
