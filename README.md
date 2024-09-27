@@ -1,4 +1,4 @@
-# Testes de Performance - Carga e Stress
+# Testes de Performance - Carga e Pico
 
 Este projeto utiliza o **JMeter** para executar testes de performance (carga e pico) automaticamente através de uma pipeline criada via **GitHub Actions**. O JMeter é executado através de **Docker**, garantindo um ambiente padronizado e replicável para os testes de **carga** e **pico** da aplicação.
 
